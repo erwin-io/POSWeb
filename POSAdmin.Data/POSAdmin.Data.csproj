@@ -45,20 +45,23 @@
     <Compile Include="Core\RepositoryBase.cs" />
     <Compile Include="Entity\EntityInformationModel.cs" />
     <Compile Include="Entity\LocationModel.cs" />
+    <Compile Include="Entity\SystemMenuRoleModel.cs" />
     <Compile Include="Entity\SystemPrivilegeModel.cs" />
     <Compile Include="Entity\SystemRoleModel.cs" />
     <Compile Include="Entity\SystemMenuModel.cs" />
+    <Compile Include="Entity\SystemRolePrivilegesModel.cs" />
     <Compile Include="Entity\SystemUserModel.cs" />
+    <Compile Include="Entity\SystemUserRolesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POSAdmin.Domain\POSAdmin.Domain.csproj">
       <Project>{3b5ea9b2-4703-4e7e-9e03-257e07db3aff}</Project>
       <Name>POSAdmin.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

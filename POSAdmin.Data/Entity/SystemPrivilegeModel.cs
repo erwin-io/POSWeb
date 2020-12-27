@@ -1,9 +1,11 @@
 ﻿
+using System;
+
 namespace POSWeb.POSAdmin.Data.Entity
 {
     public class SystemPrivilegeModel
     {
-        public string PrivilegesId { get; set; }
-        public string PrivilegesName { get; set; }
+        public string SystemPrivilegesId { get; set; }
+        public string Name { get; set; }
     }
 }

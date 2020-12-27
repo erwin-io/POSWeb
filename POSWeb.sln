@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSAdmin.Domain", "POSAdmin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSAdmin.Data", "POSAdmin.Data\POSAdmin.Data.csproj", "{6ED6C5C5-3E42-43DA-BD78-09B809BB3008}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.Mapping", "POS.Mapping\POS.Mapping.csproj", "{31EFDD49-5DA5-4852-80D0-2ACFE1A2E1F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6ED6C5C5-3E42-43DA-BD78-09B809BB3008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ED6C5C5-3E42-43DA-BD78-09B809BB3008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ED6C5C5-3E42-43DA-BD78-09B809BB3008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EFDD49-5DA5-4852-80D0-2ACFE1A2E1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EFDD49-5DA5-4852-80D0-2ACFE1A2E1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EFDD49-5DA5-4852-80D0-2ACFE1A2E1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EFDD49-5DA5-4852-80D0-2ACFE1A2E1F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

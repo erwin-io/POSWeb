@@ -41,13 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModel\EntityContactInformationBindingModel.cs" />
+    <Compile Include="BindingModel\SystemMenuRoleBindingModel.cs" />
+    <Compile Include="BindingModel\SystemRoleBindingModel.cs" />
+    <Compile Include="BindingModel\SystemRolePrivilegesBindingModel.cs" />
+    <Compile Include="BindingModel\SystemUserBindingModel.cs" />
+    <Compile Include="BindingModel\SystemUserRolesBindingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\EntityInformationViewModel.cs" />
+    <Compile Include="ViewModel\LocationViewModel.cs" />
+    <Compile Include="ViewModel\SystemMenuViewModel.cs" />
+    <Compile Include="ViewModel\SystemMenuRoleViewModel.cs" />
+    <Compile Include="ViewModel\SystemPrivilegeViewModel.cs" />
+    <Compile Include="ViewModel\SystemRoleViewModel.cs" />
+    <Compile Include="ViewModel\SystemRolePrivilegesViewModel.cs" />
+    <Compile Include="ViewModel\SystemUserViewModel.cs" />
+    <Compile Include="ViewModel\SystemUserRolesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BindingModel\" />
     <Folder Include="Enumerations\" />
     <Folder Include="Utils\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

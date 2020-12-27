@@ -509,3 +509,4 @@ D:\Erwin\MyDev\Project\Git\POSWeb\POS.API\bin\ru\Microsoft.ReportViewer.WinForms
 D:\Erwin\MyDev\Project\Git\POSWeb\POS.API\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Erwin\MyDev\Project\Git\POSWeb\POS.API\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Erwin\MyDev\Project\Git\POSWeb\POS.API\obj\Debug\POS.API.csproj.CopyComplete
+D:\Erwin\MyDev\Project\Git\POSWeb\POS.API\obj\Debug\POS.API.csprojAssemblyReference.cache
