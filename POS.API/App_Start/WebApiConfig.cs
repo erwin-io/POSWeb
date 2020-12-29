@@ -1,17 +1,18 @@
 ﻿using Microsoft.Owin.Security.OAuth;
+using POSWeb.POS.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace POS.API
+namespace POSWeb.POS.API
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            //AutoMapperConfig.Configure("PetDatingApp.Mapping");
+            AutoMapperConfig.Configure("POSWeb.POS.Mapping");
 
             // Web API routes
             config.MapHttpAttributeRoutes();

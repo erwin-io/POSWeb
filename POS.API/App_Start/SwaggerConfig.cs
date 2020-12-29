@@ -1,12 +1,12 @@
 using System.Web.Http;
 using WebActivatorEx;
-using POS.API;
+using POSWeb.POS.API;
 using Swashbuckle.Application;
-using POS.API.Filters;
+using POSWeb.POS.API.Filters;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace POS.API
+namespace POSWeb.POS.API
 {
     public class SwaggerConfig
     {
@@ -33,7 +33,7 @@ namespace POS.API
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "POS.API");
+                        c.SingleApiVersion("v1", "POSWeb.POS.API");
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
@@ -188,7 +188,7 @@ namespace POS.API
                         // "Logical Name" is passed to the method as shown above.
                         //
                         //c.InjectJavaScript(thisAssembly, "Swashbuckle.Dummy.SwaggerExtensions.testScript1.js");
-                        c.InjectJavaScript(thisAssembly, "POS.API.Scripts.CustomSwagger.js");
+                        c.InjectJavaScript(thisAssembly, "POSWeb.POS.API.Scripts.CustomSwagger.js");
 
                         // The swagger-ui renders boolean data types as a dropdown. By default, it provides "true" and "false"
                         // strings as the possible choices. You can use this option to change these to something else,

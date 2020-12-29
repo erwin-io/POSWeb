@@ -1,11 +1,11 @@
-[assembly: WebActivator.PostApplicationStartMethod(typeof(POS.API.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
+[assembly: WebActivator.PostApplicationStartMethod(typeof(POSWeb.POS.API.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
 
-namespace POS.API.App_Start
+namespace POSWeb.POS.API.App_Start
 {
     using System.Data;
     using System.Data.SqlClient;
     using System.Web.Http;
-    using POS.API.Helpers;
+    using POSWeb.POS.API.Helpers;
     using SimpleInjector;
     using SimpleInjector.Integration.WebApi;
     using SimpleInjector.Lifestyles;

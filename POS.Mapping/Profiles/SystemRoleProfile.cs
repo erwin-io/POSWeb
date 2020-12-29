@@ -13,15 +13,19 @@ namespace POSWeb.POS.Mapping.Profiles
             this.IgnoreUnmapped();
             CreateMap<SystemRoleModel, SystemRoleViewModel>();
             CreateMap<SystemRoleBindingModel, SystemRoleModel>()
-                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src =>
-                new SystemUserModel
+                .ForPath(dest => dest.CreatedBy, opt => opt.MapFrom(src =>
+                new SystemRecordManagerModel
                 {
                     SystemUserId = src.CreatedBy
                 }))
-                .ForMember(dest => dest.Location, opt => opt.MapFrom(src => new LocationModel() { LocationId = src.LocationId }));
+                .ForPath(dest => dest.Location, opt => opt.MapFrom(src => 
+                new LocationModel() 
+                { 
+                    LocationId = src.LocationId 
+                }));
             CreateMap<UpdateSystemRoleBindingModel, SystemRoleModel>()
-                .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src =>
-                new SystemUserModel
+                .ForPath(dest => dest.UpdatedBy, opt => opt.MapFrom(src =>
+                new SystemRecordManagerModel
                 {
                     SystemUserId = src.UpdatedBy
                 }));

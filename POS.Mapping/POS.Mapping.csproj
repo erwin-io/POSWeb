@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>POSWeb.POS.Mapping</RootNamespace>
     <AssemblyName>POSWeb.POS.Mapping</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -54,6 +54,8 @@
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="AutoMapperHelper.cs" />
     <Compile Include="Profiles\SystemMenuRoleProfile.cs" />
+    <Compile Include="Profiles\PageResultProfile.cs" />
+    <Compile Include="Profiles\SystemUserRolesProfile.cs" />
     <Compile Include="Profiles\SystemRoleProfile.cs" />
     <Compile Include="Profiles\SystemUserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

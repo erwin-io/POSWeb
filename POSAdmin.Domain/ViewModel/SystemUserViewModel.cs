@@ -10,5 +10,7 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
         public LocationViewModel Location { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public TokenViewModel Token { get; set; }
     }
 }

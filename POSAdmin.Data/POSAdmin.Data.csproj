@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>POSWeb.POSAdmin.Data</RootNamespace>
     <AssemblyName>POSWeb.POSAdmin.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,17 +49,25 @@
     <Compile Include="Core\RepositoryBase.cs" />
     <Compile Include="Entity\EntityInformationModel.cs" />
     <Compile Include="Entity\LocationModel.cs" />
+    <Compile Include="Entity\PageResultsModel.cs" />
     <Compile Include="Entity\SystemMenuRoleModel.cs" />
     <Compile Include="Entity\SystemPrivilegeModel.cs" />
+    <Compile Include="Entity\SystemRecordManagerModel.cs" />
     <Compile Include="Entity\SystemRoleModel.cs" />
     <Compile Include="Entity\SystemMenuModel.cs" />
     <Compile Include="Entity\SystemRolePrivilegesModel.cs" />
     <Compile Include="Entity\SystemUserModel.cs" />
     <Compile Include="Entity\SystemUserRolesModel.cs" />
+    <Compile Include="Interface\IEntityInformationRepository.cs" />
+    <Compile Include="Interface\ISystemUserRepository.cs" />
+    <Compile Include="Interface\ISystemRoleRepositoryDAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EntityInformationDAC.cs" />
+    <Compile Include="SystemUserDAC.cs" />
+    <Compile Include="SystemRoleDAC.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interface\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POSAdmin.Domain\POSAdmin.Domain.csproj">

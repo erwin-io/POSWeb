@@ -10,5 +10,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
         public SystemRoleViewModel SystemRole { get; set; }
         public SystemUserViewModel SystemUser { get; set; }
         public LocationViewModel Location { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

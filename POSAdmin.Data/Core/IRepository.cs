@@ -6,9 +6,9 @@ namespace POSWeb.POSAdmin.Data.Core
     {
         List<T> GetAll();
         T Find(string id);
-        string Add(T item);
+        string Add(T model);
         bool Remove(string id);
-        bool Update(T item);
+        bool Update(T model);
 
     }
 }

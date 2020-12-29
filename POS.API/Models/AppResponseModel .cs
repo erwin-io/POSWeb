@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace POS.API.Models
+namespace POSWeb.POS.API.Models
 {
     public class AppResponseModel<T>
     {

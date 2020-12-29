@@ -13,7 +13,7 @@ namespace POSWeb.POS.Mapping.Profiles
             this.IgnoreUnmapped();
             CreateMap<SystemUserModel, SystemUserViewModel>();
             CreateMap<CreateSystemUserBindingModel, SystemUserModel>()
-                .ForMember(dest => dest.EntityInformation, opt => opt.MapFrom(src =>
+                .ForPath(dest => dest.EntityInformation, opt => opt.MapFrom(src =>
                     new EntityInformationModel
                     {
                         FirstName = src.FirstName,
@@ -24,9 +24,15 @@ namespace POSWeb.POS.Mapping.Profiles
                         Gender = new EntityGenderTypeModel() {GenderId = src.GenderId },
                         CivilStatusType = new EntityCivilStatusTypeModel() { CivilStatusTypeId = src.CivilStatusTypeId },
                         Location = new LocationModel() { LocationId = src.LocationId }
-                    })).ForMember(dest=> dest.EntityInformation.Contact, opt => opt.MapFrom(src=> src.Contact));
+                    }))
+                .ForPath(dest=> dest.EntityInformation.Contact, opt => opt.MapFrom(src=> src.Contact))
+                .ForPath(dest => dest.Location, opt => opt.MapFrom(src =>
+                new LocationModel()
+                {
+                    LocationId = src.LocationId
+                })); ;
             CreateMap<UpdateSystemUserBindingModel, SystemUserModel>()
-                .ForMember(dest => dest.EntityInformation, opt => opt.MapFrom(src =>
+                .ForPath(dest => dest.EntityInformation, opt => opt.MapFrom(src =>
                     new EntityInformationModel
                     {
                         FirstName = src.FirstName,
@@ -37,7 +43,6 @@ namespace POSWeb.POS.Mapping.Profiles
                         Gender = new EntityGenderTypeModel() { GenderId = src.GenderId },
                         CivilStatusType = new EntityCivilStatusTypeModel() { CivilStatusTypeId = src.CivilStatusTypeId }
                     }));
-
         }
     }
 }

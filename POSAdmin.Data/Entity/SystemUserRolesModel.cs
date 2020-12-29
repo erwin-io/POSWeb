@@ -12,5 +12,9 @@ namespace POSWeb.POSAdmin.Data.Entity
         public SystemRoleModel SystemRole { get; set; }
         public SystemUserModel SystemUser { get; set; }
         public LocationModel Location { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

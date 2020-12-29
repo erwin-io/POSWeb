@@ -9,9 +9,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
         public SystemPrivilegeViewModel SystemPrivilege { get; set; }
         public bool IsAllowed { get; set; }
         public LocationViewModel Location { get; set; }
-        public SystemUserViewModel CreatedBy { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserViewModel UpdatedBy { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

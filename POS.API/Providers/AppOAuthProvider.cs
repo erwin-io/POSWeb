@@ -1,6 +1,6 @@
 ﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
-using POS.API.Models;
+using POSWeb.POS.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace POS.API.Providers
+namespace POSWeb.POS.API.Providers
 {
     public class AppOAuthProvider : OAuthAuthorizationServerProvider
     {

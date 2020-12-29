@@ -6,6 +6,7 @@ namespace POSWeb.POSAdmin.Data.Entity
     public class EntityInformationModel
     {
         public string LegalEntityId { get; set; }
+        public string FullName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
@@ -16,9 +17,9 @@ namespace POSWeb.POSAdmin.Data.Entity
         public DateTime BirthDate { get; set; }
         public int? Age { get; set; }
         public LocationModel Location { get; set; }
-        public SystemUserModel CreatedBy { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserModel UpdatedBy { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -28,9 +29,9 @@ namespace POSWeb.POSAdmin.Data.Entity
         public EntityInformationModel EntityInformation { get; set; }
         public EntityContactTypeModel EntityContactType { get; set; }
         public string Value { get; set; }
-        public SystemUserModel CreatedBy { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserModel UpdatedBy { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -38,9 +39,9 @@ namespace POSWeb.POSAdmin.Data.Entity
     {
         public string LegalContactTypeId { get; set; }
         public string Name { get; set; }
-        public SystemUserModel CreatedBy { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserModel UpdatedBy { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -48,9 +49,9 @@ namespace POSWeb.POSAdmin.Data.Entity
     {
         public string CivilStatusTypeId { get; set; }
         public string Name { get; set; }
-        public SystemUserModel CreatedBy { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserModel UpdatedBy { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -58,9 +59,9 @@ namespace POSWeb.POSAdmin.Data.Entity
     {
         public string GenderId { get; set; }
         public string Name { get; set; }
-        public SystemUserModel CreatedBy { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserModel UpdatedBy { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

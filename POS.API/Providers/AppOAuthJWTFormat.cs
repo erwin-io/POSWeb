@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Configuration;
 using Thinktecture.IdentityModel.Tokens;
 
-namespace POS.API.Providers
+namespace POSWeb.POS.API.Providers
 {
     public class AppOAuthJWTFormat : ISecureDataFormat<AuthenticationTicket>
     {

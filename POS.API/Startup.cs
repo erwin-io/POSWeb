@@ -4,7 +4,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using Microsoft.Owin.Security.Jwt;
 using Owin;
-using POS.API.Providers;
+using POSWeb.POS.API.Providers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,8 +13,8 @@ using System.Web;
 using System.Web.Http;
 
 
-[assembly: OwinStartup(typeof(POS.API.Startup))]
-namespace POS.API
+[assembly: OwinStartup(typeof(POSWeb.POS.API.Startup))]
+namespace POSWeb.POS.API
 {
     /// <summary>
     /// Startup
@@ -65,7 +65,7 @@ namespace POS.API
                 //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/oauth2/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new AppOAuthProvider(),
                 AccessTokenFormat = new AppOAuthJWTFormat(issuer),
                 RefreshTokenProvider = new AppRefreshTokenProvider()

@@ -6,6 +6,7 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
     public class EntityInformationViewModel
     {
         public string LegalEntityId { get; set; }
+        public string FullName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
@@ -16,9 +17,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
         public DateTime BirthDate { get; set; }
         public int? Age { get; set; }
         public LocationViewModel Location { get; set; }
-        public SystemUserViewModel CreatedBy { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserViewModel UpdatedBy { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -28,9 +29,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
         public EntityInformationViewModel EntityInformation { get; set; }
         public EntityContactTypeViewModel EntityContactType { get; set; }
         public string Value { get; set; }
-        public SystemUserViewModel CreatedBy { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserViewModel UpdatedBy { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -38,9 +39,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
     {
         public string LegalContactTypeId { get; set; }
         public string Name { get; set; }
-        public SystemUserViewModel CreatedBy { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserViewModel UpdatedBy { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -48,9 +49,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
     {
         public string CivilStatusTypeId { get; set; }
         public string Name { get; set; }
-        public SystemUserViewModel CreatedBy { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserViewModel UpdatedBy { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
@@ -58,9 +59,9 @@ namespace POSWeb.POSAdmin.Domain.ViewModel
     {
         public string GenderId { get; set; }
         public string Name { get; set; }
-        public SystemUserViewModel CreatedBy { get; set; }
+        public SystemRecordManagerViewModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserViewModel UpdatedBy { get; set; }
+        public SystemRecordManagerViewModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

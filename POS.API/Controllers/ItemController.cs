@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using POS.API.Filters;
-using POS.API.Helpers;
-using POS.API.Models;
+using POSWeb.POS.API.Filters;
+using POSWeb.POS.API.Helpers;
+using POSWeb.POS.API.Models;
 using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 
-namespace POS.API.Controllers
+namespace POSWeb.POS.API.Controllers
 {
     [Authorize]
     [RoutePrefix("api/v1/Item")]

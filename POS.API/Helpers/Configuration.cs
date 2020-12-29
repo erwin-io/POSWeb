@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 
-namespace POS.API.Helpers
+namespace POSWeb.POS.API.Helpers
 {
     /// <summary>
     /// App Configurations
@@ -18,7 +18,7 @@ namespace POS.API.Helpers
         /// <returns></returns>
         public static string ConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["PetDatingAppWebAPIDB"].ToString();
+            return ConfigurationManager.ConnectionStrings["POSWebDB"].ToString();
         }
         /// <summary>
         /// Create hash based from input

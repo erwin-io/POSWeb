@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace POS.API.Helpers
+namespace POSWeb.POS.API.Helpers
 {
     public static class Messages
     {

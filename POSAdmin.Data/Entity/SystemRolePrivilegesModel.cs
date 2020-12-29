@@ -13,9 +13,9 @@ namespace POSWeb.POSAdmin.Data.Entity
         public SystemPrivilegeModel SystemPrivilege { get; set; }
         public bool IsAllowed { get; set; }
         public LocationModel Location { get; set; }
-        public SystemUserModel CreatedBy { get; set; }
+        public SystemRecordManagerModel CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
-        public SystemUserModel UpdatedBy { get; set; }
+        public SystemRecordManagerModel UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }
