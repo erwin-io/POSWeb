@@ -27,6 +27,7 @@ namespace POSWeb.POSAdmin.API.Controllers
     {
         private readonly ISystemRoleFacade _systemRoleFacade;
         private string RecordedBy { get; set; }
+        private long LocationId { get; set; }
         #region CONSTRUCTORS
         public SystemRoleController(ISystemRoleFacade systemRoleFacade)
         {
@@ -116,10 +117,10 @@ namespace POSWeb.POSAdmin.API.Controllers
                 var identity = User.Identity as ClaimsIdentity;
                 if (identity != null)
                 {
-                    RecordedBy = identity.FindFirst("systemUserId").Value;
+                    RecordedBy = identity.FindFirst("SystemUserId").Value;
+                    LocationId = Convert.ToInt64(identity.FindFirst("LocationId").Value);
                 }
-                model.CreatedBy = RecordedBy;
-                string id = _systemRoleFacade.Add(model);
+                string id = _systemRoleFacade.Add(model, LocationId, RecordedBy);
 
                 if (!string.IsNullOrEmpty(id))
                 {
@@ -167,7 +168,7 @@ namespace POSWeb.POSAdmin.API.Controllers
                 var identity = User.Identity as ClaimsIdentity;
                 if (identity != null)
                 {
-                    RecordedBy = identity.FindFirst("systemUserId").Value;
+                    RecordedBy = identity.FindFirst("SystemUserId").Value;
                 }
                 var result = _systemRoleFacade.Find(model.SystemRoleId);
                 if (result == null)
@@ -175,9 +176,7 @@ namespace POSWeb.POSAdmin.API.Controllers
                     response.Message = string.Format(Messages.InvalidId, "System Role");
                     return new POSAPIHttpActionResult<AppResponseModel<SystemRoleViewModel>>(Request, HttpStatusCode.BadRequest, response);
                 }
-
-                model.UpdatedBy = RecordedBy;
-                bool success = _systemRoleFacade.Update(model);
+                bool success = _systemRoleFacade.Update(model, RecordedBy);
                 response.IsSuccess = success;
 
                 if (success)
@@ -222,7 +221,7 @@ namespace POSWeb.POSAdmin.API.Controllers
                 var identity = User.Identity as ClaimsIdentity;
                 if (identity != null)
                 {
-                    RecordedBy = identity.FindFirst("systemUserId").Value;
+                    RecordedBy = identity.FindFirst("SystemUserId").Value;
                 }
 
                 var result = _systemRoleFacade.Find(id);

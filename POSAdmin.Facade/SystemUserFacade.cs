@@ -47,5 +47,16 @@ namespace POSWeb.POSAdmin.Facade
         public SystemUserViewModel Find(string id) => AutoMapperHelper<SystemUserModel, SystemUserViewModel>.Map(_systemUserRepository.Find(id));
 
         public SystemUserViewModel Find(string Username, string Password) => AutoMapperHelper<SystemUserModel, SystemUserViewModel>.Map(_systemUserRepository.Find(Username, Password));
+
+        public bool SystemUserAccountApproval(SystemUserAccountApprovalBindingModel model)
+        {
+            var success = false;
+            //using (var scope = new TransactionScope())
+            //{
+            //    success = _systemUserRepository.Update(AutoMapperHelper<UpdateSystemRoleBindingModel, SystemRoleModel>.Map(model));
+            //    scope.Complete();
+            //}
+            return success;
+        }
     }
 }

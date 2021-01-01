@@ -82,23 +82,28 @@ namespace POSWeb.POSAdmin.Data
                 new[]
                 {
                     typeof(SystemRoleModel),
-                    typeof(SystemUserModel),
-                    typeof(SystemUserModel),
+                    typeof(LocationModel),
+                    typeof(SystemRecordManagerModel),
+                    typeof(SystemRecordManagerModel),
                     typeof(int),
                 }, obj =>
                 {
                     SystemRoleModel sr = obj[0] as SystemRoleModel;
-                    SystemRecordManagerModel cb = obj[1] as SystemRecordManagerModel;
-                    SystemRecordManagerModel ub = obj[2] as SystemRecordManagerModel;
+                    LocationModel l = obj[1] as LocationModel;
+                    SystemRecordManagerModel cb = obj[2] as SystemRecordManagerModel;
+                    SystemRecordManagerModel ub = obj[3] as SystemRecordManagerModel;
                     int t = 0;
-                    int.TryParse(obj[3].ToString(), out t);
+                    int.TryParse(obj[4].ToString(), out t);
                     SystemRoleModel model;
                     if (!lookup.TryGetValue(sr.SystemRoleId, out model))
                         lookup.Add(sr.SystemRoleId, model = sr);
+                    if (model.Location == null)
+                        model.Location = new LocationModel();
                     if (model.CreatedBy == null)
                         model.CreatedBy = new SystemRecordManagerModel();
                     if (model.UpdatedBy == null)
                         model.UpdatedBy = new SystemRecordManagerModel();
+                    model.Location = l;
                     model.CreatedBy = cb;
                     model.UpdatedBy = ub;
                     results.TotalCount = t;
@@ -113,7 +118,7 @@ namespace POSWeb.POSAdmin.Data
                     PageNo = PageNo,
                     PageSize = PageSize,
                     LocationId = LocationId
-                }, splitOn: "SystemRoleId,SystemUserId,SystemUserId,TotalRows", commandType: CommandType.StoredProcedure).ToList();
+                }, splitOn: "SystemRoleId,LocationId,SystemUserId,SystemUserId,TotalRows", commandType: CommandType.StoredProcedure).ToList();
                 if (lookup.Values.Any())
                 {
                     results.Items = lookup.Values;

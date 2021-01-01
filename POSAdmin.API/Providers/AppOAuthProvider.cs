@@ -36,7 +36,8 @@ namespace POSWeb.POSAdmin.API.Providers
                 var identity = new ClaimsIdentity("JWT");
 
                 identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-                identity.AddClaim(new Claim("systemUserId", user.SystemUserId));
+                identity.AddClaim(new Claim("SystemUserId", user.SystemUserId));
+                identity.AddClaim(new Claim("LocationId", user.Location.LocationId.ToString()));
                 identity.AddClaim(new Claim(ClaimTypes.Email, user.EntityInformation.EmailAddress??string.Empty));
                 identity.AddClaim(new Claim(ClaimTypes.GivenName, user.EntityInformation.FullName??string.Empty));
                 identity.AddClaim(new Claim(ClaimTypes.Gender, user.EntityInformation?.Gender?.Name??string.Empty));
@@ -47,7 +48,7 @@ namespace POSWeb.POSAdmin.API.Providers
                 {
                     {"as:clientRefreshTokenLifeTime", "60"},
                     { "username", user.UserName },
-                    { "systemUserId", user.SystemUserId },
+                    { "SystemUserId", user.SystemUserId },
                 };
 
                 //foreach (RoleViewModel role in user.UserRoles)

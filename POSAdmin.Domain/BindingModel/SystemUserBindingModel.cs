@@ -15,7 +15,6 @@ namespace POSWeb.POSAdmin.Domain.BindingModel
         public string GenderId { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
     }
     public class CreateSystemUserBindingModel : SystemUserBindingModel
     {
@@ -25,11 +24,12 @@ namespace POSWeb.POSAdmin.Domain.BindingModel
     public class UpdateSystemUserBindingModel : SystemUserBindingModel
     {
         public string SystemUserId { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 
-    public class SystemUserApprovedBindingModel
+    public class SystemUserAccountApprovalBindingModel
     {
         public string SystemUserId { get; set; }
-        public SystemUserRolesBindingModel UserRoles { get; set; }
+        public List<SystemUserRolesBindingModel> UserRoles { get; set; }
     }
 }

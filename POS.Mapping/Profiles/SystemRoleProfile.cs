@@ -16,18 +16,18 @@ namespace POSWeb.POS.Mapping.Profiles
                 .ForPath(dest => dest.CreatedBy, opt => opt.MapFrom(src =>
                 new SystemRecordManagerModel
                 {
-                    SystemUserId = src.CreatedBy
+                    SystemUserId = null
                 }))
                 .ForPath(dest => dest.Location, opt => opt.MapFrom(src => 
                 new LocationModel() 
                 { 
-                    LocationId = src.LocationId 
+                    LocationId = 0
                 }));
             CreateMap<UpdateSystemRoleBindingModel, SystemRoleModel>()
                 .ForPath(dest => dest.UpdatedBy, opt => opt.MapFrom(src =>
                 new SystemRecordManagerModel
                 {
-                    SystemUserId = src.UpdatedBy
+                    SystemUserId = null
                 }));
         }
     }

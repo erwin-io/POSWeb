@@ -22,7 +22,7 @@ using Newtonsoft.Json.Linq;
 
 namespace POSWeb.POSAdmin.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("api/v1/SystemUser")]
     public class SystemUserController : ApiController
     {
@@ -35,43 +35,5 @@ namespace POSWeb.POSAdmin.API.Controllers
         #endregion
 
 
-        [Route("")]
-        [HttpPost]
-        [ValidateModel]
-        [SwaggerOperation("create")]
-        [SwaggerResponse(HttpStatusCode.Created)]
-        [SwaggerResponse(HttpStatusCode.BadRequest)]
-        public IHttpActionResult Create([FromBody] CreateSystemUserBindingModel model)
-        {
-            AppResponseModel<SystemUserViewModel> response = new AppResponseModel<SystemUserViewModel>();
-
-            try
-            {
-                string id = _systemUserFacade.Add(model);
-
-                if (!string.IsNullOrEmpty(id))
-                {
-                    var result = _systemUserFacade.Find(id);
-
-                    response.IsSuccess = true;
-                    response.Message = Messages.Created;
-                    response.Data = result;
-                    return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.Created, response);
-                }
-                else
-                {
-                    response.Message = Messages.Failed;
-                    return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.BadRequest, response);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                response.DeveloperMessage = ex.Message;
-                response.Message = Messages.ServerError;
-                //TODO Logging of exceptions
-                return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.BadRequest, response);
-            }
-        }
     }
 }

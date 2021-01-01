@@ -8,9 +8,6 @@ namespace POSWeb.POSAdmin.Domain.BindingModel
 {
     public class SystemUserRolesBindingModel
     {
-        public string SystemUserId { get; set; }
         public string SystemRoleId { get; set; }
-        public long LocationId { get; set; }
-        public string CreatedBy { get; set; }
     }
 }

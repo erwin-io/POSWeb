@@ -18,20 +18,15 @@ namespace POSWeb.POS.Mapping.Profiles
                 {
                     SystemRoleId = src.SystemRoleId
                 }))
-                .ForPath(dest => dest.SystemUser, opt => opt.MapFrom(src => 
-                new SystemUserModel() 
-                { 
-                    SystemUserId = src.SystemUserId
-                }))
-                .ForPath(dest => dest.CreatedBy, opt => opt.MapFrom(src =>
-                new SystemRecordManagerModel
+                .ForPath(dest => dest.SystemUser, opt => opt.MapFrom(src =>
+                new SystemUserModel
                 {
-                    SystemUserId = src.CreatedBy
+                    SystemUserId = null
                 }))
                 .ForPath(dest => dest.Location, opt => opt.MapFrom(src =>
-                new LocationModel()
+                new LocationModel
                 {
-                    LocationId = src.LocationId
+                    LocationId = 0
                 }));
         }
     }

@@ -26,78 +26,44 @@ namespace POSWeb.POSAdmin.API.Controllers
     [RoutePrefix("api/v1/UserAuth")]
     public class UserAuthController : ApiController
     {
-        private readonly IUserAuthFacade _userAuthFacade;
+        private readonly ISystemUserFacade _systemUserFacade;
         #region CONSTRUCTORS
-        public UserAuthController(IUserAuthFacade userAuthFacade)
+        public UserAuthController(ISystemUserFacade systemUserFacade)
         {
-            _userAuthFacade = userAuthFacade ?? throw new ArgumentNullException(nameof(_userAuthFacade));
+            _systemUserFacade = systemUserFacade ?? throw new ArgumentNullException(nameof(systemUserFacade));
         }
         #endregion
 
-        [Route("authenticateuser")]
-        [HttpGet]
-        [SwaggerOperation("get")]
-        [SwaggerResponse(HttpStatusCode.OK)]
-        [SwaggerResponse(HttpStatusCode.NotFound)]
-        public IHttpActionResult Get(string username, string password)
+
+        [Route("")]
+        [HttpPost]
+        [ValidateModel]
+        [SwaggerOperation("create")]
+        [SwaggerResponse(HttpStatusCode.Created)]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        public IHttpActionResult Create([FromBody] CreateSystemUserBindingModel model)
         {
             AppResponseModel<SystemUserViewModel> response = new AppResponseModel<SystemUserViewModel>();
 
-            if (string.IsNullOrEmpty(username))
-            {
-                response.Message = string.Format(Messages.Empty, "Username");
-                return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.BadRequest, response);
-            }
-            if (string.IsNullOrEmpty(password))
-            {
-                response.Message = string.Format(Messages.Empty, "Password");
-                return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.BadRequest, response);
-            }
-
-
             try
             {
-                SystemUserViewModel result = _userAuthFacade.Find(username, password);
+                string id = _systemUserFacade.Add(model);
 
-                if (result != null)
+                if (!string.IsNullOrEmpty(id))
                 {
-                    string baseAddress = Url.Content("~/");
-                    using (var client = new HttpClient())
-                    {
+                    var result = _systemUserFacade.Find(id);
 
-                        var form = new Dictionary<string, string>
-                        {
-                           {"grant_type", "password"},
-                           {"username", username},
-                           {"password", password},
-                        };
-                        var respoonseMessage = client.PostAsync(baseAddress + "/oauth2/token", new FormUrlEncodedContent(form)).Result;
-                        string _json = respoonseMessage.Content.ReadAsStringAsync().Result;
-
-                        JObject obj = JsonConvert.DeserializeObject<JObject>(_json);
-                        var token = obj.ToObject<TokenViewModel>();
-                        if(token != null)
-                        {
-                            result.Token = token;
-
-                        }
-                        else
-                        {
-                            response.Message = Messages.ServerError;
-                            response.DeveloperMessage = string.Format(Messages.CustomError, "Token is null");
-                            return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.OK, response);
-                        }
-                    }
-                    response.Data = result;
                     response.IsSuccess = true;
-                    return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.OK, response);
+                    response.Message = Messages.Created;
+                    response.Data = result;
+                    return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.Created, response);
                 }
                 else
                 {
-                    response.Message = Messages.NoRecord;
-                    return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.NotFound, response);
-                }
+                    response.Message = Messages.Failed;
+                    return new POSAPIHttpActionResult<AppResponseModel<SystemUserViewModel>>(Request, HttpStatusCode.BadRequest, response);
 
+                }
             }
             catch (Exception ex)
             {

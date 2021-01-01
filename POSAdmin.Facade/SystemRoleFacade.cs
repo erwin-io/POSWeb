@@ -21,7 +21,7 @@ namespace POSWeb.POSAdmin.Facade
             _systemRoleRepositoryDAC = systemRoleRepositoryDAC ?? throw new ArgumentNullException(nameof(systemRoleRepositoryDAC));
         }
         #endregion
-        public string Add(SystemRoleBindingModel model)
+        public string Add(SystemRoleBindingModel model, long LocationId, string CreatedBy)
         {
             try
             {
@@ -29,6 +29,8 @@ namespace POSWeb.POSAdmin.Facade
                 using (var scope = new TransactionScope())
                 {
                     var addModel = AutoMapperHelper<SystemRoleBindingModel, SystemRoleModel>.Map(model);
+                    addModel.Location.LocationId = LocationId;
+                    addModel.CreatedBy.SystemUserId = CreatedBy;
                     id = _systemRoleRepositoryDAC.Add(addModel);
                     scope.Complete();
                 }
@@ -55,12 +57,14 @@ namespace POSWeb.POSAdmin.Facade
             return success;
         }
 
-        public bool Update(UpdateSystemRoleBindingModel model)
+        public bool Update(UpdateSystemRoleBindingModel model, string UpdatedBy)
         {
             var success = false;
             using (var scope = new TransactionScope())
             {
-                success = _systemRoleRepositoryDAC.Update(AutoMapperHelper<UpdateSystemRoleBindingModel, SystemRoleModel>.Map(model));
+                var updateModel = AutoMapperHelper<UpdateSystemRoleBindingModel, SystemRoleModel>.Map(model);
+                updateModel.UpdatedBy.SystemUserId = UpdatedBy;
+                success = _systemRoleRepositoryDAC.Update(updateModel);
                 scope.Complete();
             }
             return success;

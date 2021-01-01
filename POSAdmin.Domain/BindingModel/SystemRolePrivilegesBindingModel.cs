@@ -11,7 +11,6 @@ namespace POSWeb.POSAdmin.Domain.BindingModel
         public string SystemRoleId { get; set; }
         public string PrivilegesId { get; set; }
         public bool IsAllowed { get; set; }
-        public long LocationId { get; set; }
         public string CreatedBy { get; set; }
     }
 }

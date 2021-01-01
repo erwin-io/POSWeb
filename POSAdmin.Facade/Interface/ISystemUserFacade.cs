@@ -13,5 +13,7 @@ namespace POSWeb.POSAdmin.Facade.Interface
         string Add(CreateSystemUserBindingModel model);
         SystemUserViewModel Find(string id);
         SystemUserViewModel Find(string Username, string Password);
+
+        bool SystemUserAccountApproval(SystemUserAccountApprovalBindingModel model);
     }
 }
