@@ -1,0 +1,13 @@
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\POSWeb.Data.dll
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\POSWeb.Data.pdb
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\Dapper.dll
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\POSWeb.Domain.dll
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\POSWeb.Domain.pdb
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\Dapper.xml
+C:\Archives\Development\POSWeb\POSWeb.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Archives\Development\POSWeb\POSWeb.Data\obj\Debug\POSWeb.Data.csprojAssemblyReference.cache
+C:\Archives\Development\POSWeb\POSWeb.Data\obj\Debug\POSWeb.Data.csproj.CoreCompileInputs.cache
+C:\Archives\Development\POSWeb\POSWeb.Data\obj\Debug\POSWeb.Data.csproj.CopyComplete
+C:\Archives\Development\POSWeb\POSWeb.Data\obj\Debug\POSWeb.Data.dll
+C:\Archives\Development\POSWeb\POSWeb.Data\obj\Debug\POSWeb.Data.pdb
