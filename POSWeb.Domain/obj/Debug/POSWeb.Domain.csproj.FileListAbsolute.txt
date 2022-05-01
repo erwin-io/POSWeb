@@ -6,3 +6,4 @@ C:\Archives\Development\POSWeb\POSWeb.Domain\obj\Debug\POSWeb.Domain.csproj.Core
 C:\Archives\Development\POSWeb\POSWeb.Domain\obj\Debug\POSWeb.Domain.csproj.CopyComplete
 C:\Archives\Development\POSWeb\POSWeb.Domain\obj\Debug\POSWeb.Domain.dll
 C:\Archives\Development\POSWeb\POSWeb.Domain\obj\Debug\POSWeb.Domain.pdb
+C:\Archives\Development\POSWeb\POSWeb.Domain\obj\Debug\POSWeb.Domain.csprojAssemblyReference.cache

@@ -807,6 +807,7 @@
     <Content Include="plugins\baguettebox.js\README.md" />
     <Content Include="plugins\baguettebox.js\src\baguetteBox.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Controller\ItemType.js" />
     <Content Include="Scripts\Controller\ResetPassword.js" />
     <Content Include="Scripts\Controller\Register.js" />
     <Content Include="Scripts\Controller\Login.js" />
@@ -842,6 +843,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LegalEntityController.cs" />
+    <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\SystemWebAdminRolePrivilegesController.cs" />
     <Compile Include="Controllers\SystemWebAdminMenuRolesController.cs" />
     <Compile Include="Controllers\SystemUserController.cs" />
@@ -894,6 +896,8 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\SystemWebAdminRolePrivileges\_Table.cshtml" />
     <Content Include="Views\SystemWebAdminRolePrivileges\Index.cshtml" />
+    <Content Include="Views\ItemType\Index.cshtml" />
+    <Content Include="Views\ItemType\_Table.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

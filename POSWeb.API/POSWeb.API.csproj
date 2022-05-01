@@ -299,6 +299,9 @@
     <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ItemBrandController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\SystemConfigController.cs" />
     <Compile Include="Controllers\SystemLookupTableController.cs" />
@@ -357,13 +360,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\POSWeb.Mapping\POSWeb.Mapping.csproj">
-      <Project>{31efdd49-5da5-4852-80d0-2acfe1a2e1f9}</Project>
-      <Name>POSWeb.Mapping</Name>
-    </ProjectReference>
     <ProjectReference Include="..\POSWeb.Data\POSWeb.Data.csproj">
       <Project>{6ed6c5c5-3e42-43da-bd78-09b809bb3008}</Project>
       <Name>POSWeb.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POSWeb.Mapping\POSWeb.Mapping.csproj">
+      <Project>{31efdd49-5da5-4852-80d0-2acfe1a2e1f9}</Project>
+      <Name>POSWeb.Mapping</Name>
     </ProjectReference>
     <ProjectReference Include="..\POSWeb.Domain\POSWeb.Domain.csproj">
       <Project>{3b5ea9b2-4703-4e7e-9e03-257e07db3aff}</Project>

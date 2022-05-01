@@ -52,7 +52,7 @@ namespace POSWeb.API.Controllers
                 if (result == null)
                 {
                     string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goEmailTempProfilePath);
-                    string fileName = Path.GetFileNameWithoutExtension(filePath); 
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
                     var fileSize = new FileInfo(filePath).Length;
                     using (Image image = Image.FromFile(filePath))
                     {
@@ -144,17 +144,17 @@ namespace POSWeb.API.Controllers
             }
         }
 
-        [Route("getDefaultCrimeIncidentTypeProfilePic")]
+        [Route("getDefaultItemBrandProfilePic")]
         [HttpGet]
         [SwaggerOperation("get")]
         [SwaggerResponse(HttpStatusCode.OK)]
-        public IHttpActionResult GetDefaultCrimeIncidentTypeProfilePic()
+        public IHttpActionResult GetDefaultItemBrandProfilePic()
         {
             AppResponseModel<FileViewModel> response = new AppResponseModel<FileViewModel>();
 
             try
             {
-                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultCrimeIncidentTypeIconFilePath);
+                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultItemBrandIconFilePath);
                 string fileName = Path.GetFileNameWithoutExtension(filePath);
                 var fileSize = new FileInfo(filePath).Length;
                 using (Image image = Image.FromFile(filePath))
@@ -187,17 +187,17 @@ namespace POSWeb.API.Controllers
         }
 
 
-        [Route("getDefaultEnforcementTypeProfilePic")]
+        [Route("getDefaultItemProfilePic")]
         [HttpGet]
         [SwaggerOperation("get")]
         [SwaggerResponse(HttpStatusCode.OK)]
-        public IHttpActionResult GetDefaultEnforcementTypeProfilePic()
+        public IHttpActionResult GetDefaultItemProfilePic()
         {
             AppResponseModel<FileViewModel> response = new AppResponseModel<FileViewModel>();
 
             try
             {
-                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultEnforcementTypeIconFilePath);
+                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultItemIconFilePath);
                 string fileName = Path.GetFileNameWithoutExtension(filePath);
                 var fileSize = new FileInfo(filePath).Length;
                 using (Image image = Image.FromFile(filePath))
@@ -226,126 +226,6 @@ namespace POSWeb.API.Controllers
                 response.Message = Messages.ServerError;
                 //TODO Logging of exceptions
                 return new SilupostAPIHttpActionResult<AppResponseModel<FileViewModel>>(Request, HttpStatusCode.BadRequest, response);
-            }
-        }
-
-
-        [Route("getDefaultEnforcementUnitProfilePic")]
-        [HttpGet]
-        [SwaggerOperation("get")]
-        [SwaggerResponse(HttpStatusCode.OK)]
-        public IHttpActionResult GetDefaultEnforcementUnitProfilePic()
-        {
-            AppResponseModel<FileViewModel> response = new AppResponseModel<FileViewModel>();
-
-            try
-            {
-                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultEnforcementUnitIconFilePicPath);
-                string fileName = Path.GetFileNameWithoutExtension(filePath);
-                var fileSize = new FileInfo(filePath).Length;
-                using (Image image = Image.FromFile(filePath))
-                {
-                    using (MemoryStream m = new MemoryStream())
-                    {
-                        image.Save(m, image.RawFormat);
-                        byte[] imageBytes = m.ToArray();
-                        var file = new FileViewModel()
-                        {
-                            FileName = fileName,
-                            FileSize = int.Parse(fileSize.ToString()),
-                            MimeType = image.RawFormat.ToString(),
-                            FileContent = imageBytes
-                        };
-                        response.Data = file;
-                        response.IsSuccess = true;
-                        return new SilupostAPIHttpActionResult<AppResponseModel<FileViewModel>>(Request, HttpStatusCode.OK, response);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                response.DeveloperMessage = ex.Message;
-                response.Message = Messages.ServerError;
-                //TODO Logging of exceptions
-                return new SilupostAPIHttpActionResult<AppResponseModel<FileViewModel>>(Request, HttpStatusCode.BadRequest, response);
-            }
-        }
-
-
-        [Route("getDefaultEnforcementStationProfilePic")]
-        [HttpGet]
-        [SwaggerOperation("get")]
-        [SwaggerResponse(HttpStatusCode.OK)]
-        public IHttpActionResult GetDefaultEnforcementStationProfilePic()
-        {
-            AppResponseModel<FileViewModel> response = new AppResponseModel<FileViewModel>();
-
-            try
-            {
-                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultEnforcementStationIconFilePath);
-                string fileName = Path.GetFileNameWithoutExtension(filePath);
-                var fileSize = new FileInfo(filePath).Length;
-                using (Image image = Image.FromFile(filePath))
-                {
-                    using (MemoryStream m = new MemoryStream())
-                    {
-                        image.Save(m, image.RawFormat);
-                        byte[] imageBytes = m.ToArray();
-                        var file = new FileViewModel()
-                        {
-                            FileName = fileName,
-                            FileSize = int.Parse(fileSize.ToString()),
-                            MimeType = image.RawFormat.ToString(),
-                            FileContent = imageBytes
-                        };
-                        response.Data = file;
-                        response.IsSuccess = true;
-                        return new SilupostAPIHttpActionResult<AppResponseModel<FileViewModel>>(Request, HttpStatusCode.OK, response);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                response.DeveloperMessage = ex.Message;
-                response.Message = Messages.ServerError;
-                //TODO Logging of exceptions
-                return new SilupostAPIHttpActionResult<AppResponseModel<FileViewModel>>(Request, HttpStatusCode.BadRequest, response);
-            }
-        }
-
-
-        [Route("GetDefaultCrimeReportMarkerIcon")]
-        [HttpGet]
-        [SwaggerOperation("get")]
-        [SwaggerResponse(HttpStatusCode.OK)]
-        public IHttpActionResult GetDefaultCrimeReportMarkerIcon()
-        {
-            IHttpActionResult response;
-
-            try
-            {
-                HttpResponseMessage responseMessage = new HttpResponseMessage(HttpStatusCode.OK);
-                string filePath = HttpContext.Current.Server.MapPath(GlobalVariables.goDefaultCrimeReportMarkerIconFilePath);
-                string fileName = Path.GetFileName(filePath);
-                Stream fileStream = new MemoryStream(System.IO.File.ReadAllBytes(filePath));
-                responseMessage.Content = new StreamContent(fileStream);
-                var cd = new System.Net.Mime.ContentDisposition
-                {
-                    FileName = fileName,
-                    Inline = false,
-                };
-                responseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue(cd.DispositionType.ToString());
-                responseMessage.Content.Headers.ContentDisposition.FileName = fileName;
-                responseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = ResponseMessage(responseMessage);
-                return response;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
         }
 
